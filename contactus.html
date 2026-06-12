@@ -1,0 +1,178 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Assistify Egypt</title>
+    <!-- Same CSS and Fonts as index.html -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Global Preloader -->
+    <div id="preloader"><div class="spinner"></div></div>
+
+
+    <!-- NAVBAR (Must be the same as index.html) -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><img src="logo.png" alt="Assistify Egypt"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="services.html">Maintenance</a></li>
+                <li><a href="community.html">Blog</a></li>
+                <li><a href="chatbot.html">Support</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge">0</span></a></li>
+                <li><a href="account.html"><i class="fas fa-user-circle"></i> Account</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. CONTACT HEADER -->
+    <header class="contact-header" style="padding: 150px 0 60px; text-align: center; background: #f1f5f9;">
+        <div class="container">
+            <h1 style="font-size: 3.5rem; color: #0f172a;">Contact Us</h1>
+            <p>We’re here to help you with any questions or support you need.</p>
+        </div>
+    </header>
+
+    <!-- 2. CONTACT INFO CARDS -->
+    <section style="padding: 60px 0; background: #f1f5f9;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <a href="tel:+201012345678" class="contact-card-new">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Phone</h3>
+                <p>+20 10 1234 5678</p>
+            </a>
+            <a href="mailto:support@assistify.com" class="contact-card-new">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>support@assistify.com</p>
+            </a>
+            <a href="https://goo.gl/maps/cairo" target="_blank" class="contact-card-new">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Location</h3>
+                <p>Cairo, Egypt</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. CONTACT FORM -->
+    <section style="padding: 80px 0;">
+        <div class="container" style="max-width: 800px;">
+            <form id="contactFormReal" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div>
+                        <label style="display:block; margin-bottom:8px; font-weight:700;">Full Name</label>
+                        <input type="text" id="name" required style="width:100%; padding:12px; border:2px solid #eee; border-radius:8px;">
+                    </div>
+                    <div>
+                        <label style="display:block; margin-bottom:8px; font-weight:700;">Phone Number</label>
+                        <input type="tel" id="phone" required style="width:100%; padding:12px; border:2px solid #eee; border-radius:8px;">
+                    </div>
+                </div>
+                <div style="margin-bottom:20px;">
+                    <label style="display:block; margin-bottom:8px; font-weight:700;">Email Address</label>
+                    <input type="email" id="email" required style="width:100%; padding:12px; border:2px solid #eee; border-radius:8px;">
+                </div>
+                <div style="margin-bottom:20px;">
+                    <label style="display:block; margin-bottom:8px; font-weight:700;">Message</label>
+                    <textarea id="message" rows="5" required style="width:100%; padding:12px; border:2px solid #eee; border-radius:8px;"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%; padding:15px; cursor:pointer; font-size:1.1rem;">Send Message</button>
+                <p id="feedback" style="display:none; color:green; text-align:center; margin-top:15px; font-weight:bold;">Your message has been sent successfully!</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- 4. CHATBOT SECTION -->
+    <section style="padding: 60px 0; background: #0062ff; color: white; text-align: center;">
+        <div class="container">
+            <h2>Need instant help? Use our live chat.</h2>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="background: white; color: #0062ff; padding: 15px 30px; border: none; border-radius: 50px; font-weight: 800; margin-top: 20px; cursor: pointer;">Open Chat</button>
+        </div>
+    </section>
+
+<!-- Footer Section -->
+<!-- Footer Section -->
+<footer class="main-footer">
+    <div class="container footer-grid">
+        <!-- Column 1: Brand & Socials -->
+        <div class="footer-col brand-col">
+            <a href="index.html" class="logo"><img src="logo.png" alt="Assistify Egypt"></a>
+            <p class="footer-desc">Empowering accessibility through technology. We provide high-quality assistive tools and professional support to the Egyptian community.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="services.html">Maintenance</a></li>
+                <li><a href="community.html">Blog</a></li>
+                <li><a href="chatbot.html">Support</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Support -->
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul class="footer-links">
+                <li><a href="#">Help Center</a></li>
+                <li><a href="services.html">Request Repair</a></li>
+                <li><a href="chatbot.html">FAQs</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="footer-contact">
+                <li><i class="fas fa-envelope"></i> support@assistify.com</li>
+                <li><i class="fas fa-phone"></i> +20 100 000 0000</li>
+                <li><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 Assistify Egypt. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Form Interactivity
+        document.getElementById('contactFormReal').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('feedback').style.display = 'block';
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>

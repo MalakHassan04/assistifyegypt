@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair Services | Assistify Egypt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Global Preloader -->
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><img src="logo.png" alt="Assistify Egypt"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="services.html" class="active">Maintenance</a></li>
+                <li><a href="community.html">Blog</a></li>
+                <li><a href="chatbot.html">Support</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge">0</span></a></li>
+                <li><a href="account.html"><i class="fas fa-user-circle"></i> Account</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container page-padding">
+        <div class="form-container">
+            <h2>Maintenance & Repair Request</h2>
+            <p>Submit a request and our technicians will contact you within 24 hours.</p>
+            <form id="serviceForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="text" id="product" placeholder="Product Type" required>
+                <textarea id="issue" placeholder="Describe your issue" required></textarea>
+                <button type="submit">Submit Request</button>
+            </form>
+
+            <p id="successMessage" style="display:none; color:green;">
+                Request sent successfully!
+            </p>
+        </div>
+    </div>
+
+<!-- Footer Section -->
+<!-- Footer Section -->
+<footer class="main-footer">
+    <div class="container footer-grid">
+        <!-- Column 1: Brand & Socials -->
+        <div class="footer-col brand-col">
+            <a href="index.html" class="logo"><img src="logo.png" alt="Assistify Egypt"></a>
+            <p class="footer-desc">Empowering accessibility through technology. We provide high-quality assistive tools and professional support to the Egyptian community.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="services.html">Maintenance</a></li>
+                <li><a href="community.html">Blog</a></li>
+                <li><a href="chatbot.html">Support</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Support -->
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul class="footer-links">
+                <li><a href="#">Help Center</a></li>
+                <li><a href="services.html">Request Repair</a></li>
+                <li><a href="chatbot.html">FAQs</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="footer-contact">
+                <li><i class="fas fa-envelope"></i> support@assistify.com</li>
+                <li><i class="fas fa-phone"></i> +20 100 000 0000</li>
+                <li><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 Assistify Egypt. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

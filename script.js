@@ -84,27 +84,11 @@ const products = [
         desc: "Advanced transfemoral limb system offering excellent balance and load support."
     },
     {
-        id: 10,
-        name: "Prosthetic Foot Module",
-        category: "prosthetics",
-        price: "EGP 12,000",
-        img: "grad_pics/Prosthetic Foot Module 159.webp",
-        desc: "Multi-axial responsive ankle and foot unit that mimics biological foot movements."
-    },
-    {
-        id: 11,
-        name: "Knee Joint Prosthetic System",
-        category: "prosthetics",
-        price: "EGP 18,000",
-        img: "https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=400",
-        desc: "Hydraulic knee joint system ensuring smooth deceleration and dependable stability control."
-    },
-    {
         id: 12,
         name: "Orthopedic Back Brace",
         category: "prosthetics",
-        price: "EGP 2,000",
-        img: "https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=400",
+        price: "EGP1,000",
+        img: "grad_pics/Orthopedic Back Brace.avif",
         desc: "Medical-grade compression back brace providing lower lumbar stabilization."
     },
 
@@ -113,49 +97,41 @@ const products = [
         id: 13,
         name: "Sports Wheelchair",
         category: "sports",
-        price: "EGP 28,000",
-        img: "https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?auto=format&fit=crop&w=400",
+        price: "EGP 145,000",
+        img: "grad_pics/Sports Wheelchair.jpeg",
         desc: "Specialized wide-profile wheel camber designed for high speed and basketball maneuvering."
     },
     {
         id: 14,
         name: "Wheelchair Basketball",
         category: "sports",
-        price: "EGP 1,200",
-        img: "https://images.unsplash.com/photo-1519861531153-f351f0a4a921?auto=format&fit=crop&w=400",
+        price: "EGP 74,805",
+        img: "grad_pics/Wheelchair Basketball.jpg",
         desc: "High-grip texture regulation basketball specifically crafted for adaptive sports performance."
     },
     {
         id: 15,
         name: "Running Blade Prosthetic",
         category: "sports",
-        price: "EGP 55,000",
-        img: "https://images.unsplash.com/photo-159742324403d-efea03ded42a?auto=format&fit=crop&w=400",
+        price: "EGP 67,350",
+        img: "grad_pics/Running Blade Prosthetic.jpg",
         desc: "Carbon fiber energy-returning J-curve running prosthetic blade for sprinters."
     },
     {
         id: 16,
         name: "Adaptive Cycling Handbike",
         category: "sports",
-        price: "EGP 22,000",
-        img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=400",
+        price: "EGP 150,000",
+        img: "grad_pics/Adaptive Cycling Handbike.webp",
         desc: "Aerodynamic lightweight aluminum frame 3-wheel handcycle with smooth shifting gears."
     },
     {
-        id: 17,
-        name: "Adaptive Tennis Racket",
-        category: "sports",
-        price: "EGP 2,500",
-        img: "https://images.unsplash.com/photo-1519861531153-f351f0a4a921?auto=format&fit=crop&w=400",
-        desc: "Lightweight racket frame with custom contour grip extension for optimal control."
-    },
-    {
         id: 18,
-        name: "Adaptive Training Resistance Kit",
-        category: "sports",
-        price: "EGP 1,800",
-        img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=400",
-        desc: "Heavy-duty workout bands and modular anchor grips suited for seated athletes."
+        name: "toilet wheelchair",
+        category: "prosthetics",
+        price: "EGP 38,800",
+        img: "grad_pics/toilet wheelchair.png",
+        desc: "A comfortable mobility chair designed for safe and convenient bathroom use, promoting independence and ease of care."
     }
 ];
 

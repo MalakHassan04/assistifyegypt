@@ -6,7 +6,7 @@ footer_html = """<!-- Footer Section -->
     <div class="container footer-grid">
         <!-- Column 1: Brand & Socials -->
         <div class="footer-col brand-col">
-            <a href="index.html" class="logo footer-logo">Assistify<span>Egypt</span></a>
+            <a href="index.html" class="logo"><img src="logo.png" alt="Assistify Egypt"></a>
             <p class="footer-desc">Empowering accessibility through technology. We provide high-quality assistive tools and professional support to the Egyptian community.</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
@@ -21,9 +21,9 @@ footer_html = """<!-- Footer Section -->
             <ul class="footer-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="community.html">Community</a></li>
-                <li><a href="chatbot.html">Chatbot</a></li>
+                <li><a href="services.html">Maintenance</a></li>
+                <li><a href="community.html">Blog</a></li>
+                <li><a href="chatbot.html">Support</a></li>
                 <li><a href="account.html">Account</a></li>
             </ul>
         </div>
@@ -32,7 +32,7 @@ footer_html = """<!-- Footer Section -->
         <div class="footer-col">
             <h4>Support</h4>
             <ul class="footer-links">
-                <li><a href="#">Help Center</a></li>
+                <li><a href="chatbot.html">Help Center</a></li>
                 <li><a href="services.html">Request Repair</a></li>
                 <li><a href="chatbot.html">FAQs</a></li>
                 <li><a href="#">Privacy Policy</a></li>
@@ -54,7 +54,6 @@ footer_html = """<!-- Footer Section -->
     <div class="footer-bottom">
         <div class="container">
             <p>&copy; 2026 Assistify Egypt. All rights reserved.</p>
-            <p>&copy; 2024 Assistify Egypt. All rights reserved.</p>
         </div>
     </div>
 </footer>"""

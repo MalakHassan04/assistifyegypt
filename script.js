@@ -329,7 +329,7 @@ async function sendMessage() {
         body: JSON.stringify({
           model: "llama-3.1-8b-instant",
           messages: [
-            { role: "system", content: "You are a highly organized AI assistant for Assistify Egypt. Your responses MUST be structured, professional, and EXCLUSIVELY use bullet points for information. DO NOT use long paragraphs. Keep information concise and easy to read. If you detect or the user mentions a serious issue or malfunction, you MUST tell them in a prominent bullet point to submit a request from our Services page so we can send a technician right away." },
+            { role: "system", content: "You are a specialized Assistify support assistant for Assistify Egypt. Your responses MUST be structured, professional, and EXCLUSIVELY use bullet points for information. DO NOT use long paragraphs. Keep information concise and easy to read. You must ONLY respond to topics directly related to: Assistive and adaptive equipment, Mobility aids, Wheelchairs, Walkers, Crutches, Prosthetics, Bathroom and daily living aids, Equipment maintenance and repairs, Product recommendations available on Assistify, Accessibility and assistive technology, Website navigation and support, and Assistify Egypt services. If the user asks about ANY unrelated topic (including politics, sports, entertainment, coding, math, general knowledge, personal advice, etc.), you must politely refuse and redirect the conversation back to Assistify by replying EXACTLY with: \"I'm here to help with Assistify Egypt services, assistive equipment, accessibility solutions, and maintenance support. Please ask me a question related to assistive technology or products available through Assistify.\" Do not provide any other text or general-purpose AI responses for unrelated topics. If you detect or the user mentions a serious issue or malfunction, you MUST tell them in a prominent bullet point to submit a request from our Services page so we can send a technician right away." },
             { role: "user", content: message }
           ]
         })
@@ -440,7 +440,7 @@ async function sendFloatingMessage() {
             body: JSON.stringify({
                 model: "llama-3.1-8b-instant",
                 messages: [
-                    { role: "system", content: "You are a highly organized AI assistant for Assistify Egypt. Your responses MUST be structured, professional, and EXCLUSIVELY use bullet points for information. DO NOT use long paragraphs. Keep information concise and easy to read. If you detect or the user mentions a serious issue or malfunction, you MUST tell them in a prominent bullet point to submit a request from our Services page so we can send a technician right away." },
+                    { role: "system", content: "You are a specialized Assistify support assistant for Assistify Egypt. Your responses MUST be structured, professional, and EXCLUSIVELY use bullet points for information. DO NOT use long paragraphs. Keep information concise and easy to read. You must ONLY respond to topics directly related to: Assistive and adaptive equipment, Mobility aids, Wheelchairs, Walkers, Crutches, Prosthetics, Bathroom and daily living aids, Equipment maintenance and repairs, Product recommendations available on Assistify, Accessibility and assistive technology, Website navigation and support, and Assistify Egypt services. If the user asks about ANY unrelated topic (including politics, sports, entertainment, coding, math, general knowledge, personal advice, etc.), you must politely refuse and redirect the conversation back to Assistify by replying EXACTLY with: \"I'm here to help with Assistify Egypt services, assistive equipment, accessibility solutions, and maintenance support. Please ask me a question related to assistive technology or products available through Assistify.\" Do not provide any other text or general-purpose AI responses for unrelated topics. If you detect or the user mentions a serious issue or malfunction, you MUST tell them in a prominent bullet point to submit a request from our Services page so we can send a technician right away." },
                     { role: "user", content: message }
                 ]
             })
@@ -615,13 +615,22 @@ function removeFromCart(index) {
 function renderCart() {
     const container = document.getElementById('cart-items-container');
     const totalEl = document.getElementById('cart-total-price');
+    const totalItemsEl = document.getElementById('cart-total-items');
     if (!container) return;
 
     const cart = JSON.parse(localStorage.getItem('assistify_cart')) || [];
     
+    if (totalItemsEl) {
+        totalItemsEl.innerText = cart.length;
+    }
+    
     if (cart.length === 0) {
         container.innerHTML = `<div class="empty-cart"><i class="fas fa-shopping-cart fa-3x" style="margin-bottom:1rem; color:#ccc;"></i><p style="margin-bottom: 1.5rem;">Your cart is empty.</p><a href="shop.html" class="btn btn-primary">Start Shopping</a></div>`;
         totalEl.innerText = "EGP 0";
+        const finalTotalEl = document.getElementById('cart-final-total');
+        if (finalTotalEl) {
+            finalTotalEl.innerText = "EGP 0";
+        }
         return;
     }
 

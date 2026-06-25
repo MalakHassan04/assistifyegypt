@@ -751,46 +751,167 @@ function renderAccountPage() {
 
 function renderAuthForm(container) {
     container.innerHTML = `
-        <div class="auth-container">
-            <h2>Welcome to Assistify</h2>
-            <p style="margin-top:0; margin-bottom:2rem;">Create an account to track your orders and services.</p>
-            <form onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="auth-name" required placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" id="auth-email" required placeholder="john@example.com">
-                </div>
-                <button type="submit" class="btn btn-primary">Sign In / Register</button>
-            </form>
-            <p>You can also <a href="shop.html" style="color:var(--primary); font-weight:bold;">continue browsing</a> as a guest.</p>
+        <div class="auth-card">
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tab-signin" onclick="switchAuthTab('signin')">Sign In</button>
+                <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Register</button>
+            </div>
+            
+            <!-- Sign In Form -->
+            <div id="form-signin" class="auth-form-content">
+                <h2>Welcome Back</h2>
+                <p class="auth-subtitle">Sign in to access your orders and services.</p>
+                <form onsubmit="handleSignIn(event)">
+                    <div class="form-group">
+                        <label for="signin-email">Email Address</label>
+                        <input type="email" id="signin-email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="signin-password">Password</label>
+                        <input type="password" id="signin-password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </form>
+            </div>
+            
+            <!-- Register Form -->
+            <div id="form-register" class="auth-form-content hidden">
+                <h2>Create Account</h2>
+                <p class="auth-subtitle">Register to track orders and request repairs.</p>
+                <form onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email Address</label>
+                        <input type="email" id="register-email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Create Password</label>
+                        <input type="password" id="register-password" required placeholder="••••••••" minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirm Password</label>
+                        <input type="password" id="register-confirm-password" required placeholder="••••••••" minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </form>
+            </div>
+            
+            <p class="auth-footer">You can also <a href="shop.html">continue browsing</a> as a guest.</p>
         </div>
     `;
 }
 
-function handleLogin(e) {
+function switchAuthTab(tabName) {
+    const tabSignin = document.getElementById('tab-signin');
+    const tabRegister = document.getElementById('tab-register');
+    const formSignin = document.getElementById('form-signin');
+    const formRegister = document.getElementById('form-register');
+    
+    if (!tabSignin || !tabRegister || !formSignin || !formRegister) return;
+
+    if (tabName === 'signin') {
+        tabSignin.classList.add('active');
+        tabRegister.classList.remove('active');
+        formSignin.classList.remove('hidden');
+        formRegister.classList.add('hidden');
+    } else {
+        tabSignin.classList.remove('active');
+        tabRegister.classList.add('active');
+        formSignin.classList.add('hidden');
+        formRegister.classList.remove('hidden');
+    }
+}
+
+function handleRegister(e) {
     e.preventDefault();
-    const name = document.getElementById('auth-name').value.trim();
-    const email = document.getElementById('auth-email').value.trim();
+    const name = document.getElementById('register-name').value.trim();
+    const email = document.getElementById('register-email').value.trim().toLowerCase();
+    const password = document.getElementById('register-password').value;
+    const confirmPassword = document.getElementById('register-confirm-password').value;
     
-    // Get initials (up to 2 letters)
-    const initials = name.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+    if (password !== confirmPassword) {
+        showToast("Passwords do not match!");
+        return;
+    }
     
-    // Check known users
+    // Retrieve users database
+    let users = JSON.parse(localStorage.getItem('assistify_users')) || [];
+    
+    // Check if user exists
+    const userExists = users.some(u => u.email === email);
+    if (userExists) {
+        showToast("Email is already registered. Please Sign In.");
+        switchAuthTab('signin');
+        const signinEmail = document.getElementById('signin-email');
+        if (signinEmail) {
+            signinEmail.value = email;
+        }
+        return;
+    }
+    
+    // Store user
+    users.push({ name, email, password });
+    localStorage.setItem('assistify_users', JSON.stringify(users));
+    
+    // Auto-login registered user
+    const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+    const user = { name, email, initials, joinYear: new Date().getFullYear(), isReturning: false };
+    localStorage.setItem('assistify_user', JSON.stringify(user));
+    
+    // Check known users compatibility
     let knownUsers = JSON.parse(localStorage.getItem('assistify_known_users')) || [];
-    let isReturning = knownUsers.includes(email);
-    if (!isReturning) {
+    if (!knownUsers.includes(email)) {
         knownUsers.push(email);
         localStorage.setItem('assistify_known_users', JSON.stringify(knownUsers));
     }
     
-    const user = { name, email, initials, joinYear: new Date().getFullYear(), isReturning };
+    const firstName = name.split(' ')[0];
+    showToast(`Welcome, ${firstName}! Registration successful.`);
+    renderAccountPage();
+}
+
+function handleSignIn(e) {
+    e.preventDefault();
+    const email = document.getElementById('signin-email').value.trim().toLowerCase();
+    const password = document.getElementById('signin-password').value;
+    
+    // Retrieve users database
+    let users = JSON.parse(localStorage.getItem('assistify_users')) || [];
+    
+    // Find user
+    const foundUser = users.find(u => u.email === email);
+    
+    if (!foundUser) {
+        let knownUsers = JSON.parse(localStorage.getItem('assistify_known_users')) || [];
+        if (knownUsers.includes(email)) {
+            showToast("Please register to create a password for your account.");
+            switchAuthTab('register');
+            const registerEmail = document.getElementById('register-email');
+            if (registerEmail) {
+                registerEmail.value = email;
+            }
+        } else {
+            showToast("Account not found. Please register.");
+            switchAuthTab('register');
+        }
+        return;
+    }
+    
+    if (foundUser.password !== password) {
+        showToast("Incorrect password. Please try again.");
+        return;
+    }
+    
+    // Credentials correct, log in
+    const initials = foundUser.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+    const user = { name: foundUser.name, email: foundUser.email, initials, joinYear: new Date().getFullYear(), isReturning: true };
     localStorage.setItem('assistify_user', JSON.stringify(user));
     
-    const firstName = name.split(' ')[0];
-    showToast(isReturning ? `Welcome back, ${firstName}!` : `Welcome, ${firstName}!`);
+    const firstName = foundUser.name.split(' ')[0];
+    showToast(`Welcome back, ${firstName}!`);
     renderAccountPage();
 }
 
